@@ -33,7 +33,17 @@ navigator.clipboard.writeText(text.value);
         setText(event.target.value);
     }
 
-    const [text, setText] = useState("");
+    const [text, setText] = useState("");   
+      let text1=text;  
+    let textarr=text1.split(" ");
+let i=0;
+for(i=0;i<textarr.length;i++){
+    if(textarr[i]===""){
+       textarr.splice(i,1);
+       i=i-1;
+    } 
+}  
+text1=textarr.join(" ");
     return (
         <>
             <div className='container my-3'>
@@ -56,7 +66,7 @@ navigator.clipboard.writeText(text.value);
                 <p>
                     no of characters:{text.length}
                     <br />
-                    no of words:{text.split(" ").length}
+                    no of words:{text1.split(" ").length}
                 </p>
                 
                     <h3> Preview:</h3>
